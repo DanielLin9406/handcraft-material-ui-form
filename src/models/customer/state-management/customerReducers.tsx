@@ -27,18 +27,6 @@ const initCustomerState: ICustomerState = {
   isSigningInSuccess: false,
   isSigningInFailure: false,
 
-  // isReadingMe: false,
-  // isReadingMeSuccess: false,
-  // isReadingMeFailure: false,
-
-  // isLoggingOut: false,
-  // isLoggingOutSuccess: false,
-  // isLoggingOutFailure: false,
-
-  // isSigningUp: false,
-  // isSigningUpSuccess: false,
-  // isSigningUpFailure: false,
-
   error: "",
 };
 
@@ -47,31 +35,15 @@ export const customerReducer = (
   action: ICustomerAction
 ): ICustomerState => {
   switch (action.type) {
-    // case INIT_AUTH_SUCCESS:
-    //   return {
-    //     ...state,
-    //     customer: action.data.customer,
-    //     isSigningIn: false,
-    //     isSigningInSuccess: true,
-    //     isAuthenticated: true,
-    //   };
-    // case INIT_AUTH_FAILED:
-    //   return {
-    //     ...state,
-    //     isSigningIn: false,
-    //     isAuthenticated: false,
-    //     isSigningInFailure: true,
-    //   };
     case SIGNING_IN:
       return {
         ...state,
         isSigningIn: true,
       };
     case SIGNING_IN_SUCCESS:
-      authService.setToken("access-token", action.data.identity.accessToken);
-      authService.setToken("refresh-token", action.data.identity.refreshToken);
       return {
         ...state,
+        customer: action.data.customer,
         isSigningIn: false,
         isSigningInSuccess: true,
         isAuthenticated: true,
@@ -84,43 +56,6 @@ export const customerReducer = (
         isSigningInFailure: true,
         error: action.error,
       };
-    // case READING_ME:
-    //   return {
-    //     ...state,
-    //     isReadingMe: false, // set false to prevent re-render when login
-    //   };
-    // case READING_ME_SUCCESS:
-    //   return {
-    //     ...state,
-    //     customer: action.data.customer,
-    //     isReadingMe: false,
-    //     isReadingMeSuccess: true,
-    //     isAuthenticated: true,
-    //   };
-    // case READING_ME_FAILURE:
-    //   return {
-    //     ...state,
-    //     isReadingMe: false,
-    //     isReadingMeFailure: true,
-    //     error: action.error,
-    //   };
-    // case SIGNING_UP:
-    //   return {
-    //     ...state,
-    //     isSigningUp: true,
-    //   };
-    // case SIGNING_UP_SUCCESS:
-    //   return {
-    //     ...state,
-    //     isSigningUp: false,
-    //     isSigningUpSuccess: true,
-    //   };
-    // case SIGNING_UP_FAILURE:
-    //   return {
-    //     ...state,
-    //     isSigningUp: false,
-    //     isSigningUpFailure: true,
-    //   };
     default:
       return state;
   }

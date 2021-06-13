@@ -23,7 +23,7 @@ const LoginMain = styled.div.attrs((props) => ({
 const MainBody = styled.div.attrs((props) => ({
   className: props.className,
 }))`
-  width: 50%;
+  width: 90%;
   height: 100%;
   margin: auto;
 `;

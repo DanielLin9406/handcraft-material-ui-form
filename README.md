@@ -1,19 +1,18 @@
-## Jobs
+# Jobs
+
+## License
+
+此專案僅供提供宇 X 科技股份有限公司面試專用，禁止未經 Daniel Lin 本人同意之前使用於商業專案與任何形式之營利目的
 
 ### Basic
 
-- Built basic infrastructure
-- Added Route
-- Product Page
-- Login Page
-
-### Features
-
-- Product Page
-  - RWD
-  - Filter
-  - Sort
-- Login Page
+- [x]Built basic infrastructure
+- [x]Added Route
+- [x]Product Page
+- [x]Login Page
+- Redirect home to login
+- Add login flow
+- in order to meet focus
 
 ## Idea
 

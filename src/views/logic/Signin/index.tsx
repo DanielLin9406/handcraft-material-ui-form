@@ -30,11 +30,12 @@ export const Signin = ({ handleSignin }): ReactElement => {
     resetEmail,
     resetPWD,
   } = useSignin("", "");
-  console.log("isEmailValid", isEmailValid);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (isEmailValid && isPWDValid) {
       console.log("submit");
+      // handleSignin
     }
     // alert(`Submitting Name ${value}`);
     resetEmail();
@@ -77,7 +78,7 @@ export const Signin = ({ handleSignin }): ReactElement => {
           )}
         </TextField>
         <TextField htmlFor="submit">
-          <FieldInput id="submit" type="submit" value="Submit" />
+          <FieldInput id="submit" type="submit" value="Sign in" />
         </TextField>
       </Form>
     </FormCon>

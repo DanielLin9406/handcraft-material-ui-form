@@ -1,11 +1,11 @@
 import React from "react";
-import { TwoColumnsLayout } from "../../../views/dump/set-up/MultiColumns";
+import { OneColumnLayout } from "../../../views/dump/set-up/OneColumn";
 import { SigninSecion } from "./IdentitySectionBlocks";
 const IdentityPage = ({ location }) => {
   return (
-    <TwoColumnsLayout direction={"column"}>
+    <OneColumnLayout direction={"column"}>
       <SigninSecion />
-    </TwoColumnsLayout>
+    </OneColumnLayout>
   );
 };
 

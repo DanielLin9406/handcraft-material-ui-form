@@ -38,6 +38,10 @@ export const TextField = styled.label.attrs((props) => ({
     top: -95%;
     background-color: #272822;
   }
+  > input[type="submit"] {
+    background-color: #fff;
+    color: #000;
+  }
 `;
 
 export const FieldName = styled.span.attrs((props) => ({

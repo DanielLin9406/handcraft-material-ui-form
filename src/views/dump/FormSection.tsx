@@ -9,6 +9,7 @@ const SectionContainer = styled.section.attrs((props) => ({
   className: props.className,
 }))<any>`
   flex: 0 0 99%;
+  width: 100%;
   margin-top: 1%;
   margin-bottom: 1%;
   margin-left: auto;

@@ -12,9 +12,9 @@ export function useIdentityStateFacade() {
 
 export function useIdentityAPIFacade() {
   const dispatch = useDispatch();
-  const setSignup = (reqDTO: ISignupReqDTO) => dispatch(signup(reqDTO));
+  // const setSignup = (reqDTO: ISignupReqDTO) => dispatch(signup(reqDTO));
   const setSignin = (reqDTO: ISigninReqDTO) => dispatch(signin(reqDTO));
-  const setReadMe = () => dispatch(readMe({}));
+  // const setReadMe = () => dispatch(readMe({}));
 
-  return { setSignin, setReadMe, setSignup };
+  return { setSignin };
 }

@@ -1,9 +1,10 @@
-import { ITokenDTO } from "../../data-fetching/dtos/ICustomerDTO";
+import { ICustomerDTO } from "../../data-fetching/dtos/ICustomerDTO";
 
 export interface ISigninReqDTO {
-  userName: string;
+  userEmail: string;
   userPWD: string;
 }
+
 export interface ISigninResDTO {
-  identity: ITokenDTO;
+  customer: ICustomerDTO;
 }

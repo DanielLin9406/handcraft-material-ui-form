@@ -25,20 +25,20 @@ export function WithIdentityState({ ...props }): Function {
 export function WithIdentityAPIHandler({ ...props }): Function {
   return (UILogicContainer): Function => {
     return (): ReactElement => {
-      const { setSignin, setReadMe, setSignup } = useIdentityAPIFacade();
+      const { setSignin } = useIdentityAPIFacade();
 
       function handleSignin(reqDTO: ISigninReqDTO) {
         setSignin(reqDTO);
       }
-      function asyncReadMe() {
-        setReadMe();
-      }
+      // function asyncReadMe() {
+      //   setReadMe();
+      // }
 
       return (
         <UILogicContainer
           {...props}
           handleSignin={handleSignin}
-          asyncReadMe={asyncReadMe}
+          // asyncReadMe={asyncReadMe}
         ></UILogicContainer>
       );
     };
