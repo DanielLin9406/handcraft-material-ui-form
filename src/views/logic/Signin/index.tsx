@@ -20,11 +20,25 @@ const AfterSigninUI = () => {
 };
 
 export const Signin = ({ handleSignin }): ReactElement => {
-  const { value, onChange, reset } = useSignin("");
+  const {
+    email,
+    PWD,
+    isEmailValid,
+    isPWDValid,
+    handleEmailChange,
+    handlePWDChange,
+    resetEmail,
+    resetPWD,
+  } = useSignin("", "");
+  console.log("isEmailValid", isEmailValid);
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    if (isEmailValid && isPWDValid) {
+      console.log("submit");
+    }
     // alert(`Submitting Name ${value}`);
-    reset();
+    resetEmail();
+    resetPWD();
   };
 
   return (
@@ -34,22 +48,33 @@ export const Signin = ({ handleSignin }): ReactElement => {
           <FieldInput
             id="email"
             type="email"
-            value={value}
-            onChange={onChange}
+            value={email}
+            onChange={handleEmailChange}
             autocomplete="off"
           />
-          <FieldName label-value="email">email</FieldName>
-          <ErrorMessage></ErrorMessage>
+          <FieldName label-value="email" data-filled={!!email}>
+            email
+          </FieldName>
+        </TextField>
+        <TextField htmlFor="emailErr">
+          {isEmailValid || (
+            <ErrorMessage>Not a valid email format</ErrorMessage>
+          )}
         </TextField>
         <TextField htmlFor="password">
           <FieldInput
             id="password"
             type="password"
-            value={value}
-            onChange={onChange}
+            value={PWD}
+            onChange={handlePWDChange}
             autocomplete="off"
           />
-          <FieldName label-value="password">password</FieldName>
+          <FieldName label-value="password" data-filled={!!PWD}>
+            password
+          </FieldName>
+          {isPWDValid || (
+            <ErrorMessage>Password must be between 8-16 character</ErrorMessage>
+          )}
         </TextField>
         <TextField htmlFor="submit">
           <FieldInput id="submit" type="submit" value="Submit" />

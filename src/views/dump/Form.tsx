@@ -7,25 +7,54 @@ export const TextField = styled.label.attrs((props) => ({
   display: inline-block;
   position: relative;
   margin: 10px;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  &:hover {
+    &::after {
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+  }
   > input:focus {
     ~ span {
-      top: unset;
-      bottom: 100%;
-      transition: 0.5s;
+      top: -95%;
+      background-color: #272822;
     }
+    label:after {
+      border: 10px solid #3f51b5;
+    }
+  }
+  > span[data-filled="true"] {
+    top: -95%;
+    background-color: #272822;
   }
 `;
 
 export const FieldName = styled.span.attrs((props) => ({
   className: props.className,
 }))<any>`
-  color: #000;
   position: absolute;
-  left: 0;
+  height: 24px;
+  left: 10px;
   top: 0;
   bottom: 0;
+  margin: auto;
   display: block;
   color: #000;
+  padding: 0 8px;
+  transition: 0.2s;
+  color: #fff;
+  z-index: 2;
 `;
 
 export const ErrorMessage = styled.span.attrs((props) => ({
@@ -38,26 +67,13 @@ export const FieldInput = styled.input.attrs((props) => ({
   className: props.className,
 }))<any>`
   width: 100%;
-  border-radius: 4px;
-  padding: 5px;
-  color: #000;
+  border: none;
+  padding: 15px 0 15px 16px;
   font-size: 1rem;
+  color: #fff;
+  border-radius: 5px;
   position: relative;
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    border: 1px solid #fff;
-  }
-  &:hover {
-    &:after {
-      border: 3px solid #red;
-    }
-  }
+  background-color: #272822;
 `;
 
 const FormContainer = styled.form.attrs((props) => ({

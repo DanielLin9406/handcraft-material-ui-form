@@ -35,7 +35,10 @@ const encapsulatedStore = () => {
     if (userAgent.indexOf(" electron/") > -1) {
       return [];
     }
-    if (userAgent.indexOf(" chrome") > -1) {
+    if (
+      userAgent.indexOf(" chrome") > -1 &&
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__
+    ) {
       return [(window as any).__REDUX_DEVTOOLS_EXTENSION__()];
     }
     return [];
