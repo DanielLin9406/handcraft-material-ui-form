@@ -25,13 +25,15 @@ export const TextField = styled.label.attrs((props) => ({
       border: 1px solid rgba(255, 255, 255, 0.8);
     }
   }
+  &:focus-within {
+    &::after {
+      border: 2px solid #3f51b5;
+    }
+  }
   > input:focus {
     ~ span {
       top: -95%;
       background-color: #272822;
-    }
-    label:after {
-      border: 10px solid #3f51b5;
     }
   }
   > span[data-filled="true"] {

@@ -19,7 +19,7 @@ const encapsulatedStore = () => {
   }
 
   const catalogAPI = axios.create({
-    baseURL: `${catalogEnv.catalog.host}:${catalogEnv.catalog.port}/${catalogEnv.catalog.version}/`,
+    baseURL: `${catalogEnv.product.host}:${catalogEnv.product.port}/${catalogEnv.product.version}/`,
   });
 
   const initialState = isServer
