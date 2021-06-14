@@ -9,17 +9,15 @@ export const ProductListSection = WithCatalogState({})(
     return (
       <ProductList>
         {catalogs &&
-          catalogs.map((product) => {
+          catalogs.map((product, index) => {
             return (
-              <>
-                <CheckItem>
-                  <h4>{product.name}</h4>
-                  <div>
-                    color: <p>{product.color}</p>
-                  </div>
-                  <p>NT${product.price}</p>
-                </CheckItem>
-              </>
+              <CheckItem key={index}>
+                <h4>{product.name}</h4>
+                <div>
+                  color: <p>{product.color}</p>
+                </div>
+                <p>NT${product.price}</p>
+              </CheckItem>
             );
           })}
       </ProductList>

@@ -22,6 +22,9 @@ const devClientConfig = {
     historyApiFallback: true,
     host: "0.0.0.0",
     hot: true,
+    proxy: {
+      "/v1": "http://localhost:5000/",
+    },
   },
   plugins: [
     // Remove this if using SSR, delegate template to renderer.tsx
