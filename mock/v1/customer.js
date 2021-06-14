@@ -1,1 +1,1 @@
-module.exports = { customer: { customerName: "Guest" } };
+module.exports = { customer: { customerName: "User1" } };

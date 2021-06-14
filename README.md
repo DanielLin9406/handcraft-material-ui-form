@@ -10,9 +10,10 @@
 - [x]Added Route
 - [x]Product Page
 - [x]Login Page
-- Redirect home to login
-- Add login flow
-- in order to meet focus
+- [X]Redirect home to login
+- [x]Add login flow
+- [x]Remove uncessary code
+- []Input form focus effect
 
 ## Idea
 
@@ -24,3 +25,10 @@
     > Use useState for basic and simple/small size applications.
     > Use useState + useReducer + useContext for advanced/medium size applications.
     > Use useState/useReducer + Redux for complex/large size applications.
+- Debounce
+  - In order to increase the efficiency of processing, I set a delay of 250 micro-second validating the input value after the value was changed.
+
+## Guide
+
+Since there is no cookie/session nor server provided, the page is going to redirect to login page.
+If you directly go to /catalog or productlist page, you will be redirect to login page as well.

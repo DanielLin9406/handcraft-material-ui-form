@@ -54,7 +54,7 @@ export const signin = (reqDTO: ISigninReqDTO) => {
   return async (
     dispatch: Dispatch,
     getState: any,
-    { stockAPI }: { stockAPI?: AxiosStatic }
+    { catalogAPI }: { catalogAPI?: AxiosStatic }
   ) => {
     const handlerProps: IHandlerProps = {
       dispatch,
@@ -66,7 +66,7 @@ export const signin = (reqDTO: ISigninReqDTO) => {
         handler,
         logicFunc: signinLogic,
         actionCreatorFunc: actionCreators.signingIn,
-        nextStateNewFunc: fetchState(handler, stockAPI, reqDTO),
+        nextStateNewFunc: fetchState(handler, catalogAPI, reqDTO),
       })
     );
 

@@ -8,7 +8,6 @@ import { ICatalogState } from "./state-models/ICatalogState";
 import { ICatalogAction } from "../use-case/ICatalogAction";
 
 const initCatalogState: ICatalogState = {
-  // catalog: {},
   catalogs: [],
 
   isReadingCatalog: false,

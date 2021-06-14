@@ -4,7 +4,7 @@ import {
   READING_CATALOG_FAILURE,
 } from "./readCatalogByNameActionNames";
 import { ICatalogAction } from "../ICatalogAction";
-import { IreadCatalogByNameResDTO } from "./readCatalogByNameDTO";
+import { IReadCatalogByNameResDTO } from "./readCatalogByNameDTO";
 
 export function readingCatalogByTicker(): ICatalogAction {
   return {
@@ -12,7 +12,7 @@ export function readingCatalogByTicker(): ICatalogAction {
   };
 }
 export function readingCatalogByTickerSuccess(
-  data: IreadCatalogByNameResDTO
+  data: IReadCatalogByNameResDTO
 ): ICatalogAction {
   console.log(data);
   return {

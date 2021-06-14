@@ -1,9 +1,10 @@
-import React, { useReducer, createContext, ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { LoadingOrChildren } from "../shared/loadingOrChildren";
 import {
   useIdentityAPIFacade,
   useIdentityStateFacade,
 } from "./customerAPIFacase";
+import { ISigninReqDTO } from "../../models/customer/use-case/signin/signinDTO";
 
 export function WithIdentityState({ ...props }): Function {
   return (UILogicContainer): Function => {
@@ -30,17 +31,20 @@ export function WithIdentityAPIHandler({ ...props }): Function {
       function handleSignin(reqDTO: ISigninReqDTO) {
         setSignin(reqDTO);
       }
-      // function asyncReadMe() {
-      //   setReadMe();
-      // }
 
       return (
         <UILogicContainer
           {...props}
           handleSignin={handleSignin}
-          // asyncReadMe={asyncReadMe}
         ></UILogicContainer>
       );
     };
   };
 }
+
+export const useAuth = () => {
+  const { setReadMe } = useIdentityAPIFacade();
+  useEffect(() => {
+    setReadMe();
+  }, []);
+};

@@ -1,5 +1,4 @@
-// import { IReadMeAction } from "./readMe/readMeActionCreators";
+import { IReadMeAction } from "./readMe/readMeActionCreators";
 import { ISigninMeAction } from "./signin/signinActionCreators";
-// import { ISignupAction } from "./signup/signupActionCreators";
 
-export type ICustomerAction = ISigninMeAction;
+export type ICustomerAction = ISigninMeAction | IReadMeAction;

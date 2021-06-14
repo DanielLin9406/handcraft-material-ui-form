@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ISigninReqDTO } from "../../models/customer/use-case/signin/signinDTO";
 import { IRootState } from "../../models/shared/infra/reducerRoot";
+import { readMe } from "../../models/customer/use-case/readMe/readMeUseCase";
 import { signin } from "../../models/customer/use-case/signin/signinUseCase";
 
 export function useIdentityStateFacade() {
@@ -12,9 +13,8 @@ export function useIdentityStateFacade() {
 
 export function useIdentityAPIFacade() {
   const dispatch = useDispatch();
-  // const setSignup = (reqDTO: ISignupReqDTO) => dispatch(signup(reqDTO));
   const setSignin = (reqDTO: ISigninReqDTO) => dispatch(signin(reqDTO));
-  // const setReadMe = () => dispatch(readMe({}));
+  const setReadMe = () => dispatch(readMe({}));
 
-  return { setSignin };
+  return { setSignin, setReadMe };
 }

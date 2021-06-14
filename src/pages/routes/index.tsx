@@ -1,5 +1,4 @@
 import React from "react";
-import { useParams } from "react-router";
 import { RouteConfig, RouteConfigComponentProps } from "react-router-config";
 import AppRoute from "./AppRoute";
 import AuthedRoute from "../../pages/routes/RequireAuthedRoute";
@@ -7,6 +6,7 @@ import RedirectIfAuthedRoute from "../../pages/routes/RedirectAuthedRoute";
 import LoginRoute from "../routes/LoginRoute";
 import CatalogRoute from "./CatalogRoute";
 import { useCatalog } from "../../presenters/Catalog/catalogVM";
+import { useAuth } from "../../presenters/Customer/customerVM";
 import LoginPage from "../components/Identity/IdentityPageLoadable";
 import CatalogPage from "../components/Catalog/CatalogPageLoadable";
 import NotFoundPage from "../components/system/404";
@@ -20,8 +20,9 @@ import {
 export const dashboardRouteList: RouteConfig[] = [
   {
     component: ({ ...props }: RouteConfigComponentProps) => {
-      const { ticker } = useParams<any>();
-      useCatalog({ ticker });
+      // const { ticker } = useParams<any>();
+      useAuth();
+      useCatalog();
       return <CatalogPage {...props} />;
     },
     path: dashboardRouteConfig.product.url,
@@ -40,21 +41,23 @@ export const loginRouteList = [
 export const appRouteList = [
   {
     component: ({ ...props }: RouteConfigComponentProps) => (
-      <CatalogRoute {...props} />
-      // <AuthedRoute>
-      // </AuthedRoute>
+      <RedirectIfAuthedRoute>
+        <LoginRoute {...props} />
+      </RedirectIfAuthedRoute>
     ),
-    routes: dashboardRouteList,
-    path: dashboardRouteConfig.product.url,
+    exact: true,
+    routes: loginRouteList,
+    path: signInRouteConfig.login.url,
   },
   {
     component: ({ ...props }: RouteConfigComponentProps) => (
-      <LoginRoute {...props} />
-      // <RedirectIfAuthedRoute>
-      // </RedirectIfAuthedRoute>
+      <AuthedRoute>
+        <CatalogRoute {...props} />
+      </AuthedRoute>
     ),
-    routes: loginRouteList,
-    path: signInRouteConfig.login.url,
+    exact: true,
+    routes: dashboardRouteList,
+    path: dashboardRouteConfig.product.url,
   },
   { ...NotFoundPage, path: mainPagePaths.notfound },
   { ...RedirectToNotFoundPage },
@@ -63,7 +66,6 @@ export const appRouteList = [
 export const AppRouteRootList: RouteConfig[] = [
   {
     component: ({ ...props }: RouteConfigComponentProps) => {
-      // useAuth();
       return <AppRoute {...props} />;
     },
     routes: appRouteList as RouteConfig[],

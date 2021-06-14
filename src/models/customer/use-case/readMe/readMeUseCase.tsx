@@ -5,18 +5,17 @@ import {
   APISucessState,
   APIFailedState,
 } from "../../../shared/use-case/APIStates";
-import * as actionCreators from "./readCatalogByNameActionCreators";
-import { Dispatch } from "redux";
+import * as actionCreators from "./readMeActionCreators";
+import { IReadMeReqDTO } from "./readMeDTO";
+import { readMeLogic } from "./readMeLogic";
+import { CustomerService } from "../../data-fetching/CustomerService";
 import { AxiosStatic } from "axios";
-import { CatalogService } from "../../data-fetching/CatalogService";
-import { readCatalogByNameLogic } from "./readCatalogByNameLogic";
-import { IReadCatalogByNameReqDTO } from "./readCatalogByNameDTO";
 
 function sucessState(handler) {
   return () =>
     new APISucessState({
       handler,
-      actionCreatorFunc: actionCreators.readingCatalogByTickerSuccess,
+      actionCreatorFunc: actionCreators.readingMeSuccess,
     });
 }
 
@@ -24,7 +23,7 @@ function failedState(handler) {
   return () =>
     new APIFailedState({
       handler,
-      actionCreatorFunc: actionCreators.readingCatalogByTickerFailure,
+      actionCreatorFunc: actionCreators.readingMeFailure,
     });
 }
 
@@ -34,17 +33,13 @@ export const apiCall = async (api, reqDTO) => {
     params: { ...reqDTO },
     data: {},
   };
-  const service = new CatalogService({
+  const service = new CustomerService({
     api,
   });
-  return await service.readCatalogByName(payload);
+  return await service.readMe(payload);
 };
 
-function fetchState(
-  handler,
-  api: AxiosStatic,
-  reqDTO: IReadCatalogByNameReqDTO
-) {
+function fetchState(handler, api: AxiosStatic, reqDTO: IReadMeReqDTO) {
   return () =>
     new APIFetchState({
       handler,
@@ -56,9 +51,9 @@ function fetchState(
     });
 }
 
-export const readCatalogByName = (reqDTO: IReadCatalogByNameReqDTO) => {
+export const readMe = (reqDTO: IReadMeReqDTO) => {
   return async (
-    dispatch?: Dispatch,
+    dispatch: any,
     getState: any,
     { catalogAPI }: { catalogAPI?: AxiosStatic }
   ) => {
@@ -70,8 +65,8 @@ export const readCatalogByName = (reqDTO: IReadCatalogByNameReqDTO) => {
     handler.transitionTo(
       new APIReadyState({
         handler,
-        logicFunc: readCatalogByNameLogic,
-        actionCreatorFunc: actionCreators.readingCatalogByTicker,
+        logicFunc: readMeLogic,
+        actionCreatorFunc: actionCreators.readingMe,
         nextStateNewFunc: fetchState(handler, catalogAPI, reqDTO),
       })
     );

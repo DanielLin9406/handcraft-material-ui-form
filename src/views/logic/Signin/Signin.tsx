@@ -1,4 +1,4 @@
-import React, { useEffect, ReactElement } from "react";
+import React, { FormEvent, ReactElement } from "react";
 import { useSignin } from "./hooks/useSignin";
 import {
   Form,
@@ -9,15 +9,6 @@ import {
   ErrorMessage,
 } from "../../dump/Form";
 import { WithIdentityAPIHandler } from "../../../presenters/Customer/customerVM";
-
-const AfterSigninUI = () => {
-  return (
-    <>
-      <h2>Check your inbox</h2>
-      <p>We just emailed a link to</p>
-    </>
-  );
-};
 
 export const Signin = ({ handleSignin }): ReactElement => {
   const {
@@ -31,13 +22,15 @@ export const Signin = ({ handleSignin }): ReactElement => {
     resetPWD,
   } = useSignin("", "");
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt: FormEvent<HTMLInputElement>) => {
     evt.preventDefault();
-    if (isEmailValid && isPWDValid) {
+    if (isEmailValid && isPWDValid && email && PWD) {
       console.log("submit");
-      // handleSignin
+      handleSignin({
+        userEmail: email,
+        userPWD: PWD,
+      });
     }
-    // alert(`Submitting Name ${value}`);
     resetEmail();
     resetPWD();
   };
@@ -45,7 +38,7 @@ export const Signin = ({ handleSignin }): ReactElement => {
   return (
     <FormCon className={"FormCon"}>
       <Form onSubmit={handleSubmit}>
-        <TextField htmlFor="email">
+        <TextField htmlFor="email" className="field">
           <FieldInput
             id="email"
             type="email"
@@ -62,7 +55,7 @@ export const Signin = ({ handleSignin }): ReactElement => {
             <ErrorMessage>Not a valid email format</ErrorMessage>
           )}
         </TextField>
-        <TextField htmlFor="password">
+        <TextField htmlFor="password" className="field">
           <FieldInput
             id="password"
             type="password"
@@ -73,6 +66,8 @@ export const Signin = ({ handleSignin }): ReactElement => {
           <FieldName label-value="password" data-filled={!!PWD}>
             password
           </FieldName>
+        </TextField>
+        <TextField htmlFor="emailErr">
           {isPWDValid || (
             <ErrorMessage>Password must be between 8-16 character</ErrorMessage>
           )}
@@ -85,4 +80,4 @@ export const Signin = ({ handleSignin }): ReactElement => {
   );
 };
 
-export default (props) => WithIdentityAPIHandler(props)(Signin)();
+export default (props: any) => WithIdentityAPIHandler(props)(Signin)();

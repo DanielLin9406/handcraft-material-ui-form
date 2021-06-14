@@ -8,7 +8,7 @@ export const TextField = styled.label.attrs((props) => ({
   position: relative;
   margin: 10px;
 
-  &::after {
+  .field&::after {
     content: "";
     display: block;
     position: absolute;
@@ -41,6 +41,7 @@ export const TextField = styled.label.attrs((props) => ({
   > input[type="submit"] {
     background-color: #fff;
     color: #000;
+    cursor: pointer;
   }
 `;
 
@@ -72,7 +73,7 @@ export const FieldInput = styled.input.attrs((props) => ({
 }))<any>`
   width: 100%;
   border: none;
-  padding: 15px 0 15px 16px;
+  padding: 15px 16px;
   font-size: 1rem;
   color: #fff;
   border-radius: 5px;
@@ -87,7 +88,12 @@ const FormContainer = styled.form.attrs((props) => ({
   flex-direction: column;
 `;
 
-export const Form = ({ children, ...props }) => (
+export const Form = ({
+  children,
+  ...props
+}: {
+  children?: JSX.Element | JSX.Element[];
+}) => (
   <FormContainer className={"Form"} {...props}>
     {children}
   </FormContainer>

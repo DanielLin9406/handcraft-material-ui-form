@@ -8,17 +8,9 @@ export interface ICustomerState {
   isSigningInSuccess: boolean;
   isSigningInFailure: boolean;
 
-  // isReadingMe: boolean;
-  // isReadingMeSuccess: boolean;
-  // isReadingMeFailure: boolean;
-
-  // isLoggingOut: boolean;
-  // isLoggingOutSuccess: boolean;
-  // isLoggingOutFailure: boolean;
-
-  // isSigningUp: boolean;
-  // isSigningUpSuccess: boolean;
-  // isSigningUpFailure: boolean;
+  isReadingMe: boolean;
+  isReadingMeSuccess: boolean;
+  isReadingMeFailure: boolean;
 
   error: string;
 }

@@ -1,7 +1,6 @@
 import { ICatalogDTO } from "../../data-fetching/dtos/ICatalogDTO";
 
 export interface ICatalogState {
-  // catalog: ICatalogDTO | {};
   catalogs: ICatalogDTO[];
 
   isReadingCatalog: boolean;

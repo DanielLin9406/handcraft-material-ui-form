@@ -7,13 +7,9 @@ import React, {
 import createLocalReducer from "./catalogLocalReducer";
 import { LoadingOrChildren } from "../shared/loadingOrChildren";
 import { Dispatch } from "redux";
-import {
-  useCatalogStateFacade,
-  useCatalogAPIFacade,
-  // useCatalogAPIFacadeSSR,
-} from "./catalogAPIFacade";
+import { useCatalogStateFacade, useCatalogAPIFacade } from "./catalogAPIFacade";
 import { initLocalState, IInitLocalState } from "./catalogLocalReducer";
-import { IreadCatalogByNameReqDTO } from "../../models/catalog/use-case/readCatalogByName/readCatalogByNameDTO";
+import { IReadCatalogByNameReqDTO } from "../../models/catalog/use-case/readCatalogByName/readCatalogByNameDTO";
 
 interface IContextProps extends IInitLocalState<any> {
   dispatch: Dispatch;
@@ -59,10 +55,10 @@ export function WithCatalogAPIHandler({ ...props }): Function {
   return (UILogicContainer): Function => {
     return (): ReactElement => {
       // const ticker = props["match"]["params"]["ticker"];
-      const { setreadCatalogByName } = useCatalogAPIFacade();
+      const { setReadCatalogByName } = useCatalogAPIFacade();
 
-      function asyncreadCatalogByName(reqDTO: IreadCatalogByNameReqDTO) {
-        setreadCatalogByName(reqDTO);
+      function asyncreadCatalogByName(reqDTO: IReadCatalogByNameReqDTO) {
+        setReadCatalogByName(reqDTO);
       }
 
       return (
@@ -75,13 +71,9 @@ export function WithCatalogAPIHandler({ ...props }): Function {
   };
 }
 
-export const useCatalog = ({ ticker }) => {
-  const { setreadCatalogByName } = useCatalogAPIFacade();
+export const useCatalog = () => {
+  const { setReadCatalogByName } = useCatalogAPIFacade();
   useEffect(() => {
-    setreadCatalogByName({ stockVID: ticker });
-  }, [ticker]);
+    setReadCatalogByName({ catalogName: "MSFT" });
+  }, []);
 };
-
-// export const useCatalogSSR = ({ ticker, dispatch }) => {
-//   useCatalogAPIFacadeSSR({ stockVID: ticker }, dispatch);
-// };

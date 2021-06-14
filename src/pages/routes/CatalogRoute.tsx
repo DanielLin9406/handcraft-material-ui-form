@@ -3,8 +3,8 @@ import { renderRoutes, RouteConfigComponentProps } from "react-router-config";
 import { CatalogLayout } from "../layouts/Catalog/CatalogLayout";
 
 const CatalogRoute = ({ route }: RouteConfigComponentProps): ReactElement => {
-  console.log("Render CatalogRoute");
-  console.log("route", route);
+  // console.log("Render CatalogRoute");
+  // console.log("route", route);
   /*
   {
     component: CatalogRoute

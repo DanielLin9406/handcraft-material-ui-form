@@ -23,46 +23,6 @@ const devClientConfig = {
     host: "0.0.0.0",
     hot: true,
   },
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.(sass|scss)$/,
-  //       use: [
-  //         {
-  //           loader: "style-loader",
-  //         },
-  //         {
-  //           loader: "css-loader",
-  //           options: {
-  //             sourceMap: true,
-  //             modules: {
-  //               localIdentName: "[local]",
-  //             },
-  //           },
-  //         },
-  //         {
-  //           loader: "postcss-loader",
-  //         },
-  //         {
-  //           loader: "sass-loader",
-  //           options: {
-  //             sourceMap: true,
-  //           },
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       test: /\.css$/,
-  //       use: {
-  //         loader: "css-loader",
-  //         options: {
-  //           sourceMap: true,
-  //           modules: true,
-  //         },
-  //       },
-  //     },
-  //   ],
-  // },
   plugins: [
     // Remove this if using SSR, delegate template to renderer.tsx
     new HtmlWebpackPlugin({

@@ -3,17 +3,17 @@ import { ENV } from "./const.webpack";
 
 export const API_ENV = {
   production: {
-    stock: {
-      version: process.env.STOCK_PROD_VER,
-      host: process.env.STOCK_PROD_HOST,
-      port: process.env.STOCK_PROD_PORT,
+    product: {
+      version: process.env.PRODUCT_PROD_VER,
+      host: process.env.PRODUCT_PROD_HOST,
+      port: process.env.PRODUCT_PROD_PORT,
     },
   },
   development: {
-    stock: {
-      version: process.env.STOCK_DEV_VER,
-      host: process.env.STOCK_DEV_HOST,
-      port: process.env.STOCK_DEV_PORT,
+    product: {
+      version: process.env.PRODUCT_DEV_VER,
+      host: process.env.PRODUCT_DEV_HOST,
+      port: process.env.PRODUCT_DEV_PORT,
     },
   },
 };

@@ -1,8 +1,7 @@
-import React, { ReactElement, memo } from "react";
+import React, { memo } from "react";
 import { Redirect } from "react-router-dom";
 import { RouteConfig } from "react-router-config";
 import { WithIdentityState } from "../../presenters/Customer/customerVM";
-import { pagePaths, dashboardRouteConfig } from "./paths";
 
 const RedictAuthedRoute = memo<RouteConfig>(
   ({
@@ -16,7 +15,7 @@ const RedictAuthedRoute = memo<RouteConfig>(
       isAuthenticated == true &&
       (isReadingMeSuccess == true || isSigningInSuccess == true)
     ) {
-      return <Redirect to={"/d/stock/msft"} />;
+      return <Redirect to={"/catalog"} />;
     }
     return (
       <>
@@ -34,11 +33,5 @@ const RedictAuthedRoute = memo<RouteConfig>(
   }
 );
 
-// Problem happens here:
-// Fetching Current use failed should not block login process.
-// export default ({ ...props }) =>
-//   WithIdentityAPIHandler({ ...props })(
-//     WithIdentityState({ ...props })(RedictAuthedRoute)
-//   )();
 export default ({ ...props }) =>
   WithIdentityState({ ...props })(RedictAuthedRoute)();

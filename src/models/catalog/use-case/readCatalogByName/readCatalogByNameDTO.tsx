@@ -1,9 +1,9 @@
 import { ICatalogDTO } from "../../data-fetching/dtos/ICatalogDTO";
 
-export interface IreadCatalogByNameReqDTO {
-  stockVID: string;
+export interface IReadCatalogByNameReqDTO {
+  catalogName: string;
 }
 
-export interface IreadCatalogByNameResDTO {
+export interface IReadCatalogByNameResDTO {
   catalog: ICatalogDTO[];
 }

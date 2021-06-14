@@ -1,9 +1,7 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
 import { IRootState } from "../../models/shared/infra/reducerRoot";
 import { readCatalogByName } from "../../models/catalog/use-case/readCatalogByName/readCatalogByNameUseCase";
-import { IreadCatalogByNameReqDTO } from "../../models/catalog/use-case/readCatalogByName/readCatalogByNameDTO";
+import { IReadCatalogByNameReqDTO } from "../../models/catalog/use-case/readCatalogByName/readCatalogByNameDTO";
 
 export function useCatalogStateFacade() {
   const catalogGlobalState = useSelector(
@@ -14,15 +12,8 @@ export function useCatalogStateFacade() {
 
 export function useCatalogAPIFacade() {
   const dispatch = useDispatch();
-  const setreadCatalogByName = (reqDTO: IreadCatalogByNameReqDTO) =>
+  const setReadCatalogByName = (reqDTO: IReadCatalogByNameReqDTO) =>
     dispatch(readCatalogByName(reqDTO));
 
-  return { setreadCatalogByName };
+  return { setReadCatalogByName };
 }
-
-// export function useCatalogAPIFacadeSSR(
-//   reqDTO: IreadCatalogByNameReqDTO,
-//   dispatch
-// ) {
-//   dispatch(readCatalogByName(reqDTO));
-// }

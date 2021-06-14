@@ -4,13 +4,13 @@ import { APIService } from "../../shared/infra/APIService";
 import { APIResponse } from "../../shared/infra/IAPIResults";
 import { IAxiosResDTO } from "../../shared/services/dtos/IAxiosDTO";
 import { AxiosStatic, AxiosResponse } from "axios";
-import { IreadCatalogByNameResDTO } from "../use-case/readCatalogByName/readCatalogByNameDTO";
+import { IReadCatalogByNameResDTO } from "../use-case/readCatalogByName/readCatalogByNameDTO";
 
 export interface ICatalogService {
   readCatalogByName({
     params,
     headers,
-  }): Promise<APIResponse<IreadCatalogByNameResDTO>>;
+  }): Promise<APIResponse<IReadCatalogByNameResDTO>>;
 }
 
 export class CatalogService extends APIService implements ICatalogService {
@@ -22,15 +22,15 @@ export class CatalogService extends APIService implements ICatalogService {
   async readCatalogByName({
     params,
     headers,
-  }): Promise<APIResponse<IreadCatalogByNameResDTO>> {
+  }): Promise<APIResponse<IReadCatalogByNameResDTO>> {
     try {
-      const axiosRes: AxiosResponse<IreadCatalogByNameResDTO> = await this.get({
+      const axiosRes: AxiosResponse<IReadCatalogByNameResDTO> = await this.get({
         url: "https://img.scupio.com/gym/interview_api/test.json",
         params,
         headers,
       });
-      const dto: IreadCatalogByNameResDTO = axiosRes.data;
-      return successInstance(APIResult.ok<IreadCatalogByNameResDTO>(dto));
+      const dto: IReadCatalogByNameResDTO = axiosRes.data;
+      return successInstance(APIResult.ok<IReadCatalogByNameResDTO>(dto));
     } catch (err) {
       console.log("error", err);
       return errorInstance(APIResult.fail<IAxiosResDTO>(err.response));

@@ -1,6 +1,6 @@
 export const signInRouteConfig = {
   login: {
-    url: "/login",
+    url: "/",
     name: "Sign In",
   },
 };
@@ -13,6 +13,6 @@ export const dashboardRouteConfig = {
 };
 
 export const mainPagePaths = {
-  index: `/`,
+  // index: `/`,
   notfound: `/404`,
 };

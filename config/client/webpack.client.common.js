@@ -84,26 +84,6 @@ const commonConfig = {
   })(),
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
-    alias: {
-      // "@app/api": paths.apiDir,
-      // "@app/image": paths.imageDir,
-      // "@app/modules": paths.modulesDir,
-      // "@app/shared": paths.sharedDir,
-      // "@app/components": paths.componentsDir,
-      // "@app/const": paths.constDir,
-      // "@app/dump": paths.dumpDir,
-      // "@app/layout": paths.layoutDir,
-      // "@app/pages": paths.pagesDir,
-      // "@app/routes": paths.routesDir,
-      bigCalendarStyle: path.join(
-        __dirname,
-        "node_modules/react-big-calendar/lib/css/react-big-calendar.css"
-      ),
-      dayPickerStyle: path.join(
-        __dirname,
-        "node_modules/react-day-picker/lib/style.css"
-      ),
-    },
   },
 };
 

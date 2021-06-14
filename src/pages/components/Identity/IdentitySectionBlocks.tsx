@@ -5,7 +5,7 @@ import {
   FormSectionHeaderText,
   FormSectionBody,
 } from "../../../views/dump/FormSection";
-import Signin from "../../../views/logic/Signin";
+import Signin from "../../../views/logic/Signin/Signin";
 // import { OpenID } from "../../../views/logic/OpenID/OpenID";
 import { Panel } from "../../../views/dump/Panel";
 

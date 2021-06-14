@@ -11,13 +11,11 @@ const root = document.querySelector("#root");
 
 const Application = (
   <Provider store={encapsulatedStore()}>
-    {/* <ApolloProvider client={client}> */}
     <BrowserRouter>
       <Switch>
         <>{renderRoutes(AppRouteRootList)}</>
       </Switch>
     </BrowserRouter>
-    {/* </ApolloProvider> */}
   </Provider>
 );
 

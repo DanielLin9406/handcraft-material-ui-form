@@ -4,20 +4,17 @@ import { RowGroup } from "../../../views/dump/Panel";
 import { tabsBody, tabList } from "./CatalogTabs";
 import { ProductListSection } from "./CatalogSectionBlocks";
 import { RouteConfig } from "react-router-config";
-
 import { OneColumnLayout } from "../../../views/dump/set-up/OneColumn";
 import {
   TabPageContainer,
   TabPageHeader,
   TabPageBody,
 } from "../../../views/logic/shared/Tabs";
-import { TopNavBar } from "../../../views/dump/NavBar";
 
 const CatalogPage = memo<RouteConfig>(({ location }) => {
   console.log("Render CatalogPage");
   return (
     <>
-      <TopNavBar>{/* <SearchBar location={location} /> */}</TopNavBar>
       <h2>Product Overview</h2>
       <OneColumnLayout direction={"row"}>
         <ProductListSection>
