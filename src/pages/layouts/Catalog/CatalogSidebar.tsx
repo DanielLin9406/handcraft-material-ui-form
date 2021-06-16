@@ -44,7 +44,7 @@ export const CatalogSidebar = () => {
   return (
     <SidebarContainer className={"DashboardSidebar"}>
       <SidebarHeader className={"SidebarHeader"}>
-        <h1>Bridgewell</h1>
+        <h1>L</h1>
       </SidebarHeader>
       <SidebarMenu className={"SidebarMenu"}>
         {dashboardRouteList.map((route, i) => {
