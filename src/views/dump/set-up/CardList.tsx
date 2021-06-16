@@ -18,6 +18,9 @@ const CardItemContainer = styled.li.attrs((props) => ({
   className: props.className,
 }))<any>`
   display: inline-block;
+  @media (max-width: 700px) {
+    flex: 0 0 48%;
+  }
   flex: 0 0 ${(props) => props.basis};
   margin-left: 0.5%;
   margin-right: 0.5%;

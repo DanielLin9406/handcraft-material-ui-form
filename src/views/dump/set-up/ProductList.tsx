@@ -28,6 +28,12 @@ const CheckItemContainer = styled.li.attrs((props) => ({
       margin-left: 5px;
     }
   }
+  @media (max-width: 880px) {
+    flex: 0 0 48%;
+  }
+  @media (max-width: 750px) {
+    flex: 0 0 98%;
+  }
   margin: 3px;
   padding: 15px 30px;
   border-radius: 4px;

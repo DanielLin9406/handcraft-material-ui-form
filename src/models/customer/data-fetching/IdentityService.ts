@@ -18,14 +18,16 @@ export class IdentityService extends APIService implements IIdentityService {
   }
   async signin({ params, headers, data }): Promise<APIResponse<ISigninResDTO>> {
     try {
-      const axiosRes: AxiosResponse<ISigninResDTO> = await this.post({
-        url: "/login",
-        params,
-        headers,
-        data,
-      });
-      const dto: ISigninResDTO = axiosRes.data;
-      return successInstance(APIResult.ok<ISigninResDTO>(dto));
+      // const axiosRes: AxiosResponse<ISigninResDTO> = await this.post({
+      //   url: "/login",
+      //   params,
+      //   headers,
+      //   data,
+      // });
+      // const dto: ISigninResDTO = axiosRes.data;
+      return successInstance(
+        APIResult.ok<ISigninResDTO>({ customer: { customerName: "User1" } })
+      );
     } catch (err) {
       return errorInstance(APIResult.fail<IAxiosResDTO>(err.response));
     }

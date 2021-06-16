@@ -21,16 +21,18 @@ export class CustomerService extends APIService implements ICustomerService {
     headers,
   }): Promise<APIResponse<IReadMeResDTO>> {
     try {
-      const axiosRes: AxiosResponse<IReadMeResDTO> = await this.get({
-        url: "/customer",
-        params,
-        headers: {
-          ...headers,
-          Authorization: "Bearer ",
-        },
-      });
-      const dto: IReadMeResDTO = axiosRes.data;
-      return successInstance(APIResult.ok<IReadMeResDTO>(dto));
+      // const axiosRes: AxiosResponse<IReadMeResDTO> = await this.get({
+      //   url: "/customer",
+      //   params,
+      //   headers: {
+      //     ...headers,
+      //     Authorization: "Bearer ",
+      //   },
+      // });
+      // const dto: IReadMeResDTO = axiosRes.data;
+      return successInstance(
+        APIResult.ok<IReadMeResDTO>({ customer: { customerName: "User1" } })
+      );
     } catch (err) {
       return errorInstance(APIResult.fail<IAxiosResDTO>(err.response));
     }

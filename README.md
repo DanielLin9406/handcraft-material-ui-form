@@ -28,6 +28,7 @@
 - Debounce
   - In order to increase the efficiency of processing, I set a delay of 250 micro-second validating the input value after the value was changed.
 - Page-Level Lazy Load
+- Product List is RWD
 
 ## Project Structure
 
